@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary:       #0A0A0F;
+  --bg-secondary:     #13101A;
+  --glow-purple:      #A855F7;
+  --glow-purple-deep: #6B21A8;
+  --glow-red:         #FF2E4C;
+  --glow-magenta:     #D946EF;
+  --text-primary:     #F5F3FF;
+  --text-muted:       #8B829E;
+  --border-subtle:    #1F1A2E;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ─── Custom scrollbar ─── */
+::-webkit-scrollbar        { width: 4px; }
+::-webkit-scrollbar-track  { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb  { background: var(--glow-purple-deep); border-radius: 2px; }
+
+/* ─── Focus styles ─── */
+:focus-visible {
+  outline: 2px solid var(--glow-magenta);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ─── Selection ─── */
+::selection {
+  background: rgba(168, 85, 247, 0.3);
+  color: var(--text-primary);
+}
+
+/* ─── Hero drifting gradient ─── */
+@keyframes heroGlowDrift {
+  0%   { background-position: 0% 50%;   }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%;   }
+}
+
+.hero-glow-drift {
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 50%,
+    rgba(107, 33, 168, 0.6)  0%,
+    rgba(168, 85, 247, 0.35) 25%,
+    rgba(217, 70, 239, 0.2)  50%,
+    rgba(255, 46, 76, 0.15)  75%,
+    transparent              100%
+  );
+  background-size: 200% 200%;
+  animation: heroGlowDrift 20s ease infinite;
+}
+
+/* ─── Marquee ─── */
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marqueeScroll 35s linear infinite;
+  will-change: transform;
+}
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-glow-drift,
+  .marquee-track,
+  .glow-cursor {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ─── Nav frosted backdrop ─── */
+.nav-frosted {
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* ─── Glow text shadow on hero headline ─── */
+.glow-headline {
+  text-shadow:
+    0 0 60px rgba(168, 85, 247, 0.4),
+    0 0 120px rgba(217, 70, 239, 0.2);
+}
+
+/* ─── Service card glow on hover ─── */
+.service-card {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+  border-color: var(--glow-magenta) !important;
+  box-shadow:
+    0 0 20px rgba(217, 70, 239, 0.15),
+    0 0 40px rgba(168, 85, 247, 0.08),
+    inset 0 0 20px rgba(168, 85, 247, 0.04);
+}
+
+/* ─── Work card ─── */
+.work-card-image {
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.work-card:hover .work-card-image {
+  transform: scale(1.03);
+}
+
+/* ─── Red glow button ─── */
+.btn-primary {
+  box-shadow: 0 0 16px rgba(255, 46, 76, 0.4);
+  transition: box-shadow 0.25s ease, transform 0.15s ease;
+}
+.btn-primary:hover {
+  box-shadow: 0 0 32px rgba(255, 46, 76, 0.65), 0 0 60px rgba(255, 46, 76, 0.3);
+}
+
+/* ─── Ghost button ─── */
+.btn-ghost {
+  transition: color 0.2s ease;
+}
+.btn-ghost:hover {
+  color: var(--glow-magenta);
+}
+
+/* ─── Purple gradient divider line ─── */
+.gradient-line {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--glow-purple-deep) 20%,
+    var(--glow-purple)      50%,
+    var(--glow-purple-deep) 80%,
+    transparent             100%
+  );
+}
+
+/* ─── Process step number ─── */
+.process-number {
+  background: linear-gradient(135deg, var(--glow-purple), var(--glow-magenta));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
