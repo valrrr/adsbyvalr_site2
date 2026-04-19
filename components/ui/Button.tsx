@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useRef, useState, useCallback } from 'react'
+import { useRef, useState } from 'react'
 
 type Variant = 'primary' | 'secondary' | 'ghost'
 type Size    = 'sm' | 'md' | 'lg'
@@ -41,61 +41,61 @@ export default function Button({
   type = 'button',
   disabled,
 }: ButtonProps) {
-  const ref    = useRef<HTMLElement>(null)
+  const wrapRef = useRef<HTMLDivElement>(null)
   const [pos, setPos] = useState({ x: 0, y: 0 })
 
-  const handleMouseMove = useCallback((e: React.MouseEvent) => {
-    if (!ref.current || variant !== 'primary') return
-    const rect = ref.current.getBoundingClientRect()
-    const x = (e.clientX - rect.left - rect.width  / 2) * 0.25
-    const y = (e.clientY - rect.top  - rect.height / 2) * 0.25
-    setPos({ x, y })
-  }, [variant])
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!wrapRef.current) return
+    const rect = wrapRef.current.getBoundingClientRect()
+    setPos({
+      x: (e.clientX - rect.left - rect.width  / 2) * 0.25,
+      y: (e.clientY - rect.top  - rect.height / 2) * 0.25,
+    })
+  }
 
-  const handleMouseLeave = useCallback(() => setPos({ x: 0, y: 0 }), [])
+  const handleMouseLeave = () => setPos({ x: 0, y: 0 })
 
   const classes = [
     'inline-flex items-center justify-center gap-2 cursor-pointer select-none',
     sizeMap[size],
     variantMap[variant],
-    disabled ? 'opacity-50 cursor-not-allowed' : '',
+    disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : '',
     className,
-  ].join(' ')
+  ].filter(Boolean).join(' ')
 
   const style = {
     transform: `translate(${pos.x}px, ${pos.y}px)`,
     transition: 'transform 0.2s cubic-bezier(0.23,1,0.32,1)',
   }
 
-  if (href) {
-    return (
-      <Link
-        href={href}
-        ref={ref as React.Ref<HTMLAnchorElement>}
-        className={classes}
-        style={style}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        target={external ? '_blank' : undefined}
-        rel={external ? 'noopener noreferrer' : undefined}
-      >
-        {children}
-      </Link>
-    )
-  }
-
   return (
-    <button
-      ref={ref as React.Ref<HTMLButtonElement>}
-      type={type}
-      onClick={onClick}
-      disabled={disabled}
-      className={classes}
-      style={style}
+    <div
+      ref={wrapRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      className="inline-flex"
     >
-      {children}
-    </button>
+      {href ? (
+        <Link
+          href={href}
+          className={classes}
+          style={style}
+          target={external ? '_blank' : undefined}
+          rel={external ? 'noopener noreferrer' : undefined}
+        >
+          {children}
+        </Link>
+      ) : (
+        <button
+          type={type}
+          onClick={onClick}
+          disabled={disabled}
+          className={classes}
+          style={style}
+        >
+          {children}
+        </button>
+      )}
+    </div>
   )
 }

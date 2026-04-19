@@ -1,7 +1,5 @@
 'use client'
 
-import { useState } from 'react'
-import { motion } from 'framer-motion'
 import FadeIn from '@/components/ui/FadeIn'
 import Button from '@/components/ui/Button'
 
@@ -30,8 +28,6 @@ const services = [
 ]
 
 export default function ServicesPreview() {
-  const [hovered, setHovered] = useState<string | null>(null)
-
   return (
     <section
       className="relative py-24 md:py-32 bg-bg-secondary"
@@ -57,8 +53,6 @@ export default function ServicesPreview() {
             <FadeIn key={id} delay={i * 0.1}>
               <div
                 className="service-card group relative h-full bg-bg-primary border border-border-subtle rounded-2xl p-8 cursor-default"
-                onMouseEnter={() => setHovered(id)}
-                onMouseLeave={() => setHovered(null)}
               >
                 {/* Background glow bloom */}
                 <div
