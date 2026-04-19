@@ -1,11 +1,8 @@
 'use client'
 
-import React from 'react'
 import { motion } from 'framer-motion'
 import Button from '@/components/ui/Button'
 import Marquee from '@/components/ui/Marquee'
-
-const headline = ['Ads', 'that', 'move', 'creative', 'brands', 'forward.']
 
 const marqueeItems = [
   'Jewelry', 'Apparel', 'Hospitality', 'Beauty', 'Design', 'Lifestyle',
@@ -82,32 +79,31 @@ export default function Hero() {
           [ Est. 2025 — Creative Performance ]
         </motion.p>
 
-        {/* Headline — inline-block words with natural word spacing */}
-        <h1 className="font-display font-normal leading-[1.05] tracking-tight max-w-4xl mb-7">
-          {headline.map((word, i) => (
-            <React.Fragment key={i}>
-              <motion.span
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  delay: 0.25 + i * 0.07,
-                  duration: 0.55,
-                  ease: [0.25, 0.46, 0.45, 0.94],
-                }}
-                className="inline-block text-5xl md:text-6xl lg:text-7xl text-text-primary"
-              >
-                {word}
-              </motion.span>
-              {i < headline.length - 1 && ' '}
-            </React.Fragment>
-          ))}
-        </h1>
+        {/* Headline — single fade-up, controlled line breaks */}
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+          className="font-display font-normal text-5xl md:text-6xl lg:text-7xl text-text-primary max-w-4xl mb-7"
+          style={{
+            lineHeight: 1.1,
+            letterSpacing: '-0.02em',
+            wordSpacing: '0.05em',
+            fontVariationSettings: '"opsz" 144',
+          }}
+        >
+          Ads that move{' '}
+          <br className="hidden md:block" />
+          creative brands{' '}
+          <br className="hidden md:block" />
+          forward.
+        </motion.h1>
 
         {/* Subhead */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.82, duration: 0.55 }}
+          transition={{ delay: 0.7, duration: 0.6 }}
           className="font-body text-sm md:text-base text-text-muted max-w-sm mb-9 leading-relaxed"
         >
           Paid social, creative, and growth systems<br className="hidden md:block" /> for DTC and lifestyle brands.
@@ -117,7 +113,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.98, duration: 0.5 }}
+          transition={{ delay: 0.88, duration: 0.5 }}
           className="flex flex-wrap items-center gap-5"
         >
           <Button href="/contact" variant="primary" size="md">
