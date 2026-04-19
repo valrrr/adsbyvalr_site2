@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import { motion } from 'framer-motion'
 import Button from '@/components/ui/Button'
 import Marquee from '@/components/ui/Marquee'
@@ -14,99 +15,123 @@ const marqueeItems = [
 export default function Hero() {
   return (
     <section
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
-      aria-label="Hero — AdsByVsh"
+      className="relative min-h-screen flex flex-col overflow-hidden"
+      style={{ backgroundColor: '#08080C' }}
+      aria-label="Hero — adsbyvalr"
     >
-      {/* Drifting background glow */}
+      {/* ── Purple streak: top-left → mid-right ── */}
       <div
-        className="hero-glow-drift absolute inset-0 pointer-events-none"
-        aria-hidden="true"
-      />
-
-      {/* Subtle noise texture overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.03]"
+        className="absolute pointer-events-none"
         style={{
-          backgroundImage:
-            'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E")',
+          width: '56%',
+          height: '180px',
+          top: '-4%',
+          left: '-6%',
+          background: 'linear-gradient(105deg, #A855F7 0%, transparent 65%)',
+          transform: 'rotate(28deg)',
+          transformOrigin: 'left center',
+          filter: 'blur(120px)',
+          opacity: 0.32,
         }}
         aria-hidden="true"
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
-        {/* Mono label */}
+      {/* ── Red streak: bottom-right → up-left ── */}
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          width: '50%',
+          height: '160px',
+          bottom: '6%',
+          right: '-4%',
+          background: 'linear-gradient(285deg, #FF2E4C 0%, transparent 65%)',
+          transform: 'rotate(-30deg)',
+          transformOrigin: 'right center',
+          filter: 'blur(140px)',
+          opacity: 0.22,
+        }}
+        aria-hidden="true"
+      />
+
+      {/* ── Magenta connector: mid-canvas, very subtle ── */}
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          width: '38%',
+          height: '110px',
+          top: '42%',
+          left: '18%',
+          background: 'linear-gradient(90deg, transparent, #D946EF 50%, transparent)',
+          transform: 'rotate(32deg)',
+          filter: 'blur(130px)',
+          opacity: 0.11,
+        }}
+        aria-hidden="true"
+      />
+
+      {/* ── Content ── */}
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-[22vh] md:pt-[25vh] pb-16 flex-1">
+
+        {/* Mono eyebrow */}
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="font-mono text-xs tracking-widest text-glow-purple uppercase mb-6"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.45 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="font-mono text-[10px] tracking-[0.22em] text-glow-purple uppercase mb-7"
         >
           [ Est. 2025 — Creative Performance ]
         </motion.p>
 
-        {/* Headline — word stagger */}
-        <h1 className="font-display font-black leading-[0.95] tracking-tight glow-headline mb-8">
-          <span className="flex flex-wrap gap-x-[0.22em]">
-            {headline.map((word, i) => (
+        {/* Headline — inline-block words with natural word spacing */}
+        <h1 className="font-display font-normal leading-[1.05] tracking-tight max-w-4xl mb-7">
+          {headline.map((word, i) => (
+            <React.Fragment key={i}>
               <motion.span
-                key={i}
-                initial={{ opacity: 0, y: 30, skewY: 3 }}
-                animate={{ opacity: 1, y: 0, skewY: 0 }}
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  delay: 0.3 + i * 0.08,
-                  duration: 0.6,
+                  delay: 0.25 + i * 0.07,
+                  duration: 0.55,
                   ease: [0.25, 0.46, 0.45, 0.94],
                 }}
-                className="inline-block text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-text-primary"
+                className="inline-block text-5xl md:text-6xl lg:text-7xl text-text-primary"
               >
                 {word}
               </motion.span>
-            ))}
-          </span>
+              {i < headline.length - 1 && ' '}
+            </React.Fragment>
+          ))}
         </h1>
 
-        {/* Sub-copy */}
+        {/* Subhead */}
         <motion.p
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 0.6 }}
-          className="font-body text-base md:text-lg text-text-muted max-w-lg mb-10 leading-relaxed"
+          transition={{ delay: 0.82, duration: 0.55 }}
+          className="font-body text-sm md:text-base text-text-muted max-w-sm mb-9 leading-relaxed"
         >
-          We build ad engines for brands people actually remember.
-          Paid social, creative strategy, and growth systems built for DTC, fashion, and lifestyle.
+          Paid social, creative, and growth systems<br className="hidden md:block" /> for DTC and lifestyle brands.
         </motion.p>
 
         {/* CTAs */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.05, duration: 0.5 }}
-          className="flex flex-wrap items-center gap-4"
+          transition={{ delay: 0.98, duration: 0.5 }}
+          className="flex flex-wrap items-center gap-5"
         >
-          <Button href="/contact" variant="primary" size="lg">
+          <Button href="/contact" variant="primary" size="md">
             Book a Call
           </Button>
-          <Button href="/work" variant="ghost" size="lg" className="group">
+          <Button href="/work" variant="ghost" size="sm" className="group text-text-muted hover:text-text-primary">
             See the work
             <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
           </Button>
         </motion.div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.6 }}
-          className="mt-20 hidden md:flex items-center gap-3"
-          aria-hidden="true"
-        >
-          <div className="w-8 h-[1px] bg-glow-purple/40" />
-          <span className="font-mono text-xs tracking-widest text-text-muted uppercase">Scroll</span>
-        </motion.div>
       </div>
 
-      {/* Marquee strip */}
-      <div className="relative z-10 border-t border-border-subtle bg-bg-secondary/50 py-4 mt-auto">
+      {/* ── Marquee strip ── */}
+      <div className="relative z-10 border-t border-border-subtle py-4" style={{ backgroundColor: 'rgba(19,16,26,0.25)' }}>
         <Marquee items={marqueeItems} />
       </div>
     </section>

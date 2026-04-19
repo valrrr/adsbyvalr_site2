@@ -6,7 +6,7 @@ import Process from '@/components/sections/Process'
 import CTABand from '@/components/sections/CTABand'
 
 export const metadata: Metadata = {
-  title: 'AdsByVsh — Creative Performance Marketing',
+  title: 'adsbyvalr — Creative Performance Marketing',
   description:
     'We build ad engines for creative brands — DTC, fashion, jewelry, design, and lifestyle. Paid social, creative strategy, and growth systems.',
 }

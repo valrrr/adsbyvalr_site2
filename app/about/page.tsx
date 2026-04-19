@@ -6,7 +6,7 @@ import CTABand from '@/components/sections/CTABand'
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'AdsByVsh is a creative performance marketing agency built for DTC, fashion, jewelry, design, and lifestyle brands.',
+    'adsbyvalr is a creative performance marketing agency built for DTC, fashion, jewelry, design, and lifestyle brands.',
 }
 
 const values = [
@@ -58,7 +58,7 @@ export default function AboutPage() {
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="font-body text-base md:text-lg text-text-muted max-w-2xl leading-relaxed">
-              AdsByVsh is a creative performance agency built from day one for creative businesses — the DTC labels, jewelry studios, design shops, and hospitality brands that care deeply about how they look and what they stand for.
+              adsbyvalr is a creative performance agency built from day one for creative businesses — the DTC labels, jewelry studios, design shops, and hospitality brands that care deeply about how they look and what they stand for.
             </p>
           </FadeIn>
         </div>
@@ -78,7 +78,7 @@ export default function AboutPage() {
                   Most performance agencies treat creative as an afterthought. They&apos;ve built systems for spending budgets — not for building brands. Creative businesses need something different.
                 </p>
                 <p>
-                  We built AdsByVsh because the best brands in the world — the ones with real community, real product love, real longevity — deserve paid media that reflects that. Not generic. Not templated.
+                  We built adsbyvalr because the best brands in the world — the ones with real community, real product love, real longevity — deserve paid media that reflects that. Not generic. Not templated.
                 </p>
                 <p>
                   Our approach is simple: treat creative strategy with the same rigor as media buying. Test obsessively. Scale only what earns it. And care about the brand as much as the client does.

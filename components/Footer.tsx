@@ -24,7 +24,7 @@ export default function Footer() {
               href="/"
               className="font-display text-2xl font-black text-text-primary hover:text-glow-purple transition-colors"
             >
-              adsbyvsh
+              adsbyvalr
             </Link>
             <p className="font-mono text-xs tracking-wider text-text-muted uppercase">
               Creative performance marketing
@@ -73,7 +73,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-mono text-xs tracking-wider text-text-muted hover:text-glow-purple transition-colors uppercase"
-                aria-label="AdsByVsh on Instagram"
+                aria-label="adsbyvalr on Instagram"
               >
                 Instagram
               </a>
@@ -82,7 +82,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-mono text-xs tracking-wider text-text-muted hover:text-glow-purple transition-colors uppercase"
-                aria-label="AdsByVsh on TikTok"
+                aria-label="adsbyvalr on TikTok"
               >
                 TikTok
               </a>
@@ -93,7 +93,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-border-subtle flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
           <p className="font-mono text-xs text-text-muted">
-            © {year} AdsByVsh. All rights reserved.
+            © {year} adsbyvalr. All rights reserved.
           </p>
           <p className="font-mono text-xs text-border-subtle">
             EST. 2025 — CREATIVE PERFORMANCE

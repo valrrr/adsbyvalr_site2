@@ -5,7 +5,7 @@ import ContactForm from '@/components/sections/ContactForm'
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Book a discovery call with AdsByVsh. One conversation to see if we\'re the right fit for your brand.',
+    'Book a discovery call with adsbyvalr. One conversation to see if we\'re the right fit for your brand.',
 }
 
 export default function ContactPage() {

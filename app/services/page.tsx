@@ -6,7 +6,7 @@ import CTABand from '@/components/sections/CTABand'
 export const metadata: Metadata = {
   title: 'Services',
   description:
-    'Paid social, creative strategy, and growth systems. AdsByVsh builds the full performance marketing stack for creative brands.',
+    'Paid social, creative strategy, and growth systems. adsbyvalr builds the full performance marketing stack for creative brands.',
 }
 
 const services = [

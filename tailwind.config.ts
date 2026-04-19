@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'bg-primary':       '#0A0A0F',
+        'bg-primary':       '#08080C',
         'bg-secondary':     '#13101A',
         'glow-purple':      '#A855F7',
         'glow-purple-deep': '#6B21A8',

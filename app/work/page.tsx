@@ -6,7 +6,7 @@ import CTABand from '@/components/sections/CTABand'
 export const metadata: Metadata = {
   title: 'Work',
   description:
-    'Case studies and results from AdsByVsh — creative performance campaigns for DTC, fashion, jewelry, and lifestyle brands.',
+    'Case studies and results from adsbyvalr — creative performance campaigns for DTC, fashion, jewelry, and lifestyle brands.',
 }
 
 const caseStudies = [

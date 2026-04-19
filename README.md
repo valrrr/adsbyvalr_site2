@@ -1,6 +1,6 @@
-# AdsByVsh — Marketing Site
+# adsbyvalr — Marketing Site
 
-Production-ready Next.js 14 site for AdsByVsh creative performance agency.
+Production-ready Next.js 14 site for adsbyvalr creative performance agency.
 
 ## Stack
 

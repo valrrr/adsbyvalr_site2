@@ -42,15 +42,15 @@ export default function Nav() {
         aria-label="Main navigation"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 md:h-20">
+          <div className="flex items-center justify-between h-20 md:h-24">
 
             {/* Logo */}
             <Link
               href="/"
               className="font-display text-xl md:text-2xl font-black tracking-tight text-text-primary hover:text-glow-purple transition-colors"
-              aria-label="AdsByVsh — Home"
+              aria-label="adsbyvalr — Home"
             >
-              adsbyvsh
+              adsbyvalr
             </Link>
 
             {/* Desktop links */}

@@ -25,8 +25,8 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'AdsByVsh — Creative Performance Marketing',
-    template: '%s — AdsByVsh',
+    default: 'adsbyvalr — Creative Performance Marketing',
+    template: '%s — adsbyvalr',
   },
   description:
     'We build ad engines for brands people actually remember. Creative strategy, paid social, and growth systems for DTC, fashion, jewelry, and lifestyle brands.',
@@ -38,28 +38,28 @@ export const metadata: Metadata = {
     'fashion marketing',
     'performance marketing',
   ],
-  authors: [{ name: 'AdsByVsh' }],
-  creator: 'AdsByVsh',
+  authors: [{ name: 'adsbyvalr' }],
+  creator: 'adsbyvalr',
   metadataBase: new URL('https://adsbyvalr.com'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://adsbyvalr.com',
-    siteName: 'AdsByVsh',
-    title: 'AdsByVsh — Creative Performance Marketing',
+    siteName: 'adsbyvalr',
+    title: 'adsbyvalr — Creative Performance Marketing',
     description: 'We build ad engines for brands people actually remember.',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'AdsByVsh — Creative Performance Marketing',
+        alt: 'adsbyvalr — Creative Performance Marketing',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AdsByVsh — Creative Performance Marketing',
+    title: 'adsbyvalr — Creative Performance Marketing',
     description: 'We build ad engines for brands people actually remember.',
     images: ['/og-image.png'],
   },
