@@ -28,7 +28,7 @@ export default function ContactPage() {
           <div>
             <FadeIn>
               <p className="font-mono text-xs tracking-widest text-glow-purple uppercase mb-4">
-                01 / Contact
+                01 / CONTACT
               </p>
             </FadeIn>
             <FadeIn delay={0.1}>
@@ -38,7 +38,7 @@ export default function ContactPage() {
             </FadeIn>
             <FadeIn delay={0.2}>
               <p className="font-body text-base text-text-muted leading-relaxed mb-8 max-w-md">
-                One call. No pitch deck. We&apos;ll ask the right questions, give you honest feedback, and figure out together if we&apos;re the right fit.
+                one call. no pitch deck. we&apos;ll ask the right questions, give you honest feedback, and figure out together if we&apos;re the right fit.
               </p>
             </FadeIn>
 
@@ -52,7 +52,7 @@ export default function ContactPage() {
                 </a>
                 <p className="flex items-center gap-3 font-mono text-xs text-text-muted">
                   <span className="text-glow-purple">→</span>
-                  Response within 24 hours
+                  response within 24 hours
                 </p>
               </div>
             </FadeIn>

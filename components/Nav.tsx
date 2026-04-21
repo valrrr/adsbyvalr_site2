@@ -6,10 +6,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Button from '@/components/ui/Button'
 
 const navLinks = [
-  { label: 'Work',     href: '/work'     },
-  { label: 'Services', href: '/services' },
-  { label: 'About',    href: '/about'    },
-  { label: 'Contact',  href: '/contact'  },
+  { label: 'work',     href: '/work'     },
+  { label: 'services', href: '/services' },
+  { label: 'about',    href: '/about'    },
+  { label: 'contact',  href: '/contact'  },
 ]
 
 export default function Nav() {
@@ -69,7 +69,7 @@ export default function Nav() {
             {/* Desktop CTA */}
             <div className="hidden md:block">
               <Button href="/contact" variant="primary" size="sm">
-                Book a Call
+                book a call
               </Button>
             </div>
 
@@ -149,7 +149,7 @@ export default function Nav() {
               {/* Sticky CTA at bottom */}
               <div className="px-6 pb-10">
                 <Button href="/contact" variant="primary" size="lg" className="w-full justify-center">
-                  Book a Call
+                  book a call
                 </Button>
               </div>
             </motion.div>

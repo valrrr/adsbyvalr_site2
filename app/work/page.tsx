@@ -12,75 +12,75 @@ export const metadata: Metadata = {
 const caseStudies = [
   {
     id: 'kinetic-label',
-    title:    'Kinetic Label',
-    category: 'Fashion',
-    service:  'Paid Social',
+    title:    'kinetic label',
+    category: 'FASHION',
+    service:  'PAID SOCIAL',
     result:   '4.2× ROAS',
     period:   '60 days',
     gradient: 'from-glow-purple-deep via-glow-purple to-glow-magenta',
     accent:   '#A855F7',
     summary:
-      'A European streetwear brand with strong organic but stagnant paid performance. We rebuilt their creative strategy from scratch — new hooks, tighter audiences, and a testing framework that identified winners in 72 hours.',
+      'a European streetwear brand with strong organic but stagnant paid performance. we rebuilt their creative strategy from scratch — new hooks, tighter audiences, and a testing framework that identified winners in 72 hours.',
   },
   {
     id: 'foret-studio',
-    title:    'Forêt Studio',
-    category: 'Jewelry',
-    service:  'Creative Strategy',
+    title:    'forêt studio',
+    category: 'JEWELRY',
+    service:  'CREATIVE STRATEGY',
     result:   '+218% CVR',
     period:   '45 days',
     gradient: 'from-glow-magenta via-glow-red to-orange-800',
     accent:   '#FF2E4C',
     summary:
-      'A fine jewelry label struggling to convert cold traffic. We rewrote the creative angle — from product-forward to desire-forward — and rebuilt the landing page narrative to match. Conversion rate tripled.',
+      'a fine jewelry label struggling to convert cold traffic. we rewrote the creative angle — from product-forward to desire-forward — and rebuilt the landing page narrative to match. conversion rate tripled.',
   },
   {
     id: 'haven-co',
-    title:    'Haven Co.',
-    category: 'Hospitality',
-    service:  'Growth Systems',
+    title:    'haven co.',
+    category: 'HOSPITALITY',
+    service:  'GROWTH SYSTEMS',
     result:   '3× Bookings',
     period:   'Q1 2025',
     gradient: 'from-indigo-900 via-glow-purple-deep to-glow-purple',
     accent:   '#D946EF',
     summary:
-      'A boutique hotel group with zero paid infrastructure. We built attribution, ad accounts, and testing systems from zero — then scaled into three markets simultaneously within 90 days.',
+      'a boutique hotel group with zero paid infrastructure. we built attribution, ad accounts, and testing systems from zero — then scaled into three markets simultaneously within 90 days.',
   },
   {
     id: 'maison-brier',
-    title:    'Maison Brier',
-    category: 'Beauty',
-    service:  'Paid Social',
+    title:    'maison brier',
+    category: 'BEAUTY',
+    service:  'PAID SOCIAL',
     result:   '6.1× ROAS',
     period:   '90 days',
     gradient: 'from-rose-900 via-glow-magenta to-glow-purple',
     accent:   '#D946EF',
     summary:
-      'A clean beauty brand in a saturated market. We found an under-targeted audience segment and owned it with editorial-style creative. The results spoke for themselves.',
+      'a clean beauty brand in a saturated market. we found an under-targeted audience segment and owned it with editorial-style creative. the results spoke for themselves.',
   },
   {
     id: 'signal-studio',
-    title:    'Signal Studio',
-    category: 'Design',
-    service:  'Creative Strategy',
+    title:    'signal studio',
+    category: 'DESIGN',
+    service:  'CREATIVE STRATEGY',
     result:   '↑ 340% Lead Vol.',
     period:   '30 days',
     gradient: 'from-slate-900 via-glow-purple-deep to-glow-purple',
     accent:   '#A855F7',
     summary:
-      'A design studio repositioning as a premium brand partner. We crafted a paid narrative that positioned them against agencies, not freelancers. Lead quality and volume both improved dramatically.',
+      'a design studio repositioning as a premium brand partner. we crafted a paid narrative that positioned them against agencies, not freelancers. lead quality and volume both improved dramatically.',
   },
   {
     id: 'verdant-life',
-    title:    'Verdant Life',
-    category: 'Lifestyle',
-    service:  'Growth Systems',
+    title:    'verdant life',
+    category: 'LIFESTYLE',
+    service:  'GROWTH SYSTEMS',
     result:   '2.8× Revenue',
     period:   '6 months',
     gradient: 'from-emerald-950 via-glow-purple-deep to-glow-magenta',
     accent:   '#A855F7',
     summary:
-      'A DTC wellness brand with inconsistent growth. We diagnosed attribution issues, rebuilt their funnel, and introduced a systematic testing cadence. Growth became predictable for the first time.',
+      'a DTC wellness brand with inconsistent growth. we diagnosed attribution issues, rebuilt their funnel, and introduced a systematic testing cadence. growth became predictable for the first time.',
   },
 ]
 
@@ -115,7 +115,7 @@ function CaseStudyCard({ study, index }: { study: typeof caseStudies[0]; index: 
             </span>
           </div>
 
-          <h2 className="font-display text-xl md:text-2xl font-bold text-text-primary mb-3 group-hover:text-glow-purple transition-colors">
+          <h2 className="font-display text-xl md:text-2xl font-normal text-text-primary mb-3 group-hover:text-glow-purple transition-colors">
             {study.title}
           </h2>
           <p className="font-body text-sm text-text-muted leading-relaxed">
@@ -144,13 +144,13 @@ export default function WorkPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <p className="font-mono text-xs tracking-widest text-glow-purple uppercase mb-4">
-              01 / Work
+              01 / WORK
             </p>
             <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-black text-text-primary leading-tight glow-headline mb-6">
               Results that speak.
             </h1>
             <p className="font-body text-base md:text-lg text-text-muted max-w-lg leading-relaxed">
-              Every number has a strategy behind it. Here&apos;s what we&apos;ve built for brands who refused to settle for average.
+              every number has a strategy behind it. here&apos;s what we&apos;ve built for brands who refused to settle for average.
             </p>
           </FadeIn>
         </div>

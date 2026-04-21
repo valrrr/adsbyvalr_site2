@@ -12,23 +12,23 @@ export const metadata: Metadata = {
 const values = [
   {
     id: '01',
-    title:  'Performance is the product.',
-    body:   'Beautiful ads that don\'t convert aren\'t beautiful — they\'re expensive. We hold the creative accountable to the numbers, always.',
+    title:  'performance is the product.',
+    body:   'beautiful ads that don\'t convert aren\'t beautiful — they\'re expensive. we hold the creative accountable to the numbers, always.',
   },
   {
     id: '02',
-    title:  'Strategy before spend.',
-    body:   'We refuse to run ads without a creative thesis. Every campaign starts with a clear point of view on why it should work — before any money moves.',
+    title:  'strategy before spend.',
+    body:   'we refuse to run ads without a creative thesis. every campaign starts with a clear point of view on why it should work — before any money moves.',
   },
   {
     id: '03',
-    title:  'Clarity over volume.',
-    body:   'Fewer, sharper bets beat a hundred mediocre tests. We\'d rather run ten excellent ads than flood an account with noise.',
+    title:  'clarity over volume.',
+    body:   'fewer, sharper bets beat a hundred mediocre tests. we\'d rather run ten excellent ads than flood an account with noise.',
   },
   {
     id: '04',
-    title:  'Brands we believe in.',
-    body:   'We only take on brands we\'d use ourselves. It makes the work better and the relationship longer.',
+    title:  'brands we believe in.',
+    body:   'we only take on brands we\'d use ourselves. it makes the work better and the relationship longer.',
   },
 ]
 
@@ -71,7 +71,7 @@ export default function AboutPage() {
             {/* Text */}
             <FadeIn>
               <p className="font-mono text-xs tracking-widest text-glow-purple uppercase mb-6">
-                The Story
+                THE STORY
               </p>
               <div className="space-y-5 font-body text-base text-text-muted leading-relaxed">
                 <p>
@@ -105,9 +105,9 @@ export default function AboutPage() {
                 />
                 <div className="relative space-y-8">
                   {[
-                    { stat: '40+', label: 'Brands worked with' },
-                    { stat: '$12M+', label: 'In managed ad spend' },
-                    { stat: '4.1×', label: 'Average ROAS across portfolio' },
+                    { stat: '40+', label: 'brands worked with' },
+                    { stat: '$12M+', label: 'in managed ad spend' },
+                    { stat: '4.1×', label: 'average ROAS across portfolio' },
                   ].map(({ stat, label }) => (
                     <div key={stat} className="border-b border-border-subtle pb-8 last:border-0 last:pb-0">
                       <p className="font-mono text-4xl md:text-5xl font-black text-text-primary mb-1"
@@ -129,10 +129,10 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="mb-16">
             <p className="font-mono text-xs tracking-widest text-glow-purple uppercase mb-4">
-              02 / Values
+              02 / VALUES
             </p>
-            <h2 className="font-display text-4xl md:text-5xl font-black text-text-primary leading-tight">
-              What we believe.
+            <h2 className="font-display text-4xl md:text-5xl font-normal text-text-primary leading-tight">
+              what we believe.
             </h2>
           </FadeIn>
 
@@ -141,7 +141,7 @@ export default function AboutPage() {
               <FadeIn key={id} delay={i * 0.1}>
                 <div className="rounded-2xl border border-border-subtle bg-bg-secondary p-8 h-full">
                   <span className="font-mono text-xs text-glow-purple tracking-widest">{id}</span>
-                  <h3 className="font-display text-xl md:text-2xl font-bold text-text-primary mt-3 mb-4">
+                  <h3 className="font-display text-xl md:text-2xl font-normal text-text-primary mt-3 mb-4">
                     {title}
                   </h3>
                   <p className="font-body text-sm text-text-muted leading-relaxed">{body}</p>
@@ -157,29 +157,29 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <p className="font-mono text-xs tracking-widest text-glow-purple uppercase mb-4">
-              03 / Approach
+              03 / APPROACH
             </p>
-            <h2 className="font-display text-4xl md:text-5xl font-black text-text-primary leading-tight mb-10">
-              How we work with you.
+            <h2 className="font-display text-4xl md:text-5xl font-normal text-text-primary leading-tight mb-10">
+              how we work with you.
             </h2>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {[
-              { icon: '◎', title: 'Small roster.', body: 'We keep client numbers intentionally low. Every brand gets attention, not account management.' },
-              { icon: '◈', title: 'No templates.', body: 'We\'ve never sent the same strategy twice. Every engagement starts with listening, not pitching.' },
-              { icon: '⚡', title: 'Fast feedback loops.', body: 'Weekly calls, real-time Slack access, and dashboards you can actually read. No surprises.' },
+              { icon: '◎', title: 'small roster.', body: 'we keep client numbers intentionally low. every brand gets attention, not account management.' },
+              { icon: '◈', title: 'no templates.', body: 'we\'ve never sent the same strategy twice. every engagement starts with listening, not pitching.' },
+              { icon: '⚡', title: 'fast feedback loops.', body: 'weekly calls, real-time Slack access, and dashboards you can actually read. no surprises.' },
             ].map(({ icon, title, body }) => (
               <FadeIn key={title}>
                 <div className="rounded-2xl border border-border-subtle bg-bg-primary p-6">
                   <span className="text-2xl text-glow-purple block mb-4">{icon}</span>
-                  <h3 className="font-display text-xl font-bold text-text-primary mb-3">{title}</h3>
+                  <h3 className="font-display text-xl font-normal text-text-primary mb-3">{title}</h3>
                   <p className="font-body text-sm text-text-muted leading-relaxed">{body}</p>
                 </div>
               </FadeIn>
             ))}
           </div>
           <FadeIn delay={0.2}>
-            <Button href="/contact" variant="primary" size="lg">Book a discovery call</Button>
+            <Button href="/contact" variant="primary" size="lg">book a discovery call</Button>
           </FadeIn>
         </div>
       </section>

@@ -12,11 +12,11 @@ interface FormState {
 }
 
 const budgetOptions = [
-  'Under $3k/mo',
+  'under $3k/mo',
   '$3k–$7k/mo',
   '$7k–$15k/mo',
   '$15k+/mo',
-  'Not sure yet',
+  'not sure yet',
 ]
 
 export default function ContactForm() {
@@ -38,7 +38,6 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus('submitting')
-    // Placeholder — wire to your form backend (Formspree, Resend, etc.)
     await new Promise(r => setTimeout(r, 1000))
     setStatus('success')
   }
@@ -53,16 +52,15 @@ export default function ContactForm() {
       <div
         className="rounded-2xl border border-glow-purple/30 bg-bg-secondary p-10 text-center"
         style={{
-          background:
-            'linear-gradient(135deg, rgba(107,33,168,0.15) 0%, rgba(10,10,15,1) 80%)',
+          background: 'linear-gradient(135deg, rgba(107,33,168,0.15) 0%, rgba(10,10,15,1) 80%)',
         }}
       >
-        <p className="font-mono text-glow-purple text-xs tracking-widest uppercase mb-4">Message received</p>
-        <h2 className="font-display text-3xl font-black text-text-primary mb-3">
-          We&apos;ll be in touch.
+        <p className="font-mono text-glow-purple text-xs tracking-widest uppercase mb-4">MESSAGE RECEIVED</p>
+        <h2 className="font-display text-3xl font-normal text-text-primary mb-3">
+          we&apos;ll be in touch.
         </h2>
         <p className="font-body text-sm text-text-muted">
-          Expect a reply within 24 hours. In the meantime, take a look at{' '}
+          expect a reply within 24 hours. in the meantime, take a look at{' '}
           <a href="/work" className="text-glow-purple hover:underline">our work</a>.
         </p>
       </div>
@@ -77,13 +75,12 @@ export default function ContactForm() {
       aria-label="Contact form"
     >
       <p className="font-mono text-xs tracking-widest text-glow-purple uppercase mb-2">
-        Send a message
+        SEND A MESSAGE
       </p>
 
-      {/* Name + Email */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="name" className={labelClass}>Your name</label>
+          <label htmlFor="name" className={labelClass}>NAME</label>
           <input
             id="name"
             name="name"
@@ -92,12 +89,12 @@ export default function ContactForm() {
             onChange={handleChange}
             required
             autoComplete="name"
-            placeholder="Alex Kim"
+            placeholder="alex kim"
             className={inputClass}
           />
         </div>
         <div>
-          <label htmlFor="email" className={labelClass}>Email</label>
+          <label htmlFor="email" className={labelClass}>EMAIL</label>
           <input
             id="email"
             name="email"
@@ -112,10 +109,9 @@ export default function ContactForm() {
         </div>
       </div>
 
-      {/* Brand + Budget */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="brand" className={labelClass}>Brand name</label>
+          <label htmlFor="brand" className={labelClass}>COMPANY</label>
           <input
             id="brand"
             name="brand"
@@ -123,12 +119,12 @@ export default function ContactForm() {
             value={form.brand}
             onChange={handleChange}
             required
-            placeholder="Your brand"
+            placeholder="your brand"
             className={inputClass}
           />
         </div>
         <div>
-          <label htmlFor="budget" className={labelClass}>Monthly budget</label>
+          <label htmlFor="budget" className={labelClass}>MONTHLY BUDGET</label>
           <select
             id="budget"
             name="budget"
@@ -137,7 +133,7 @@ export default function ContactForm() {
             required
             className={`${inputClass} cursor-pointer appearance-none`}
           >
-            <option value="" disabled>Select range</option>
+            <option value="" disabled>select range</option>
             {budgetOptions.map(opt => (
               <option key={opt} value={opt}>{opt}</option>
             ))}
@@ -145,9 +141,8 @@ export default function ContactForm() {
         </div>
       </div>
 
-      {/* Message */}
       <div>
-        <label htmlFor="message" className={labelClass}>What&apos;s going on?</label>
+        <label htmlFor="message" className={labelClass}>WHAT ARE YOU WORKING ON?</label>
         <textarea
           id="message"
           name="message"
@@ -155,12 +150,11 @@ export default function ContactForm() {
           onChange={handleChange}
           required
           rows={5}
-          placeholder="Tell us about your brand, where you're stuck, and what you're trying to achieve."
+          placeholder="tell us about your brand, where you're stuck, and what you're trying to achieve."
           className={`${inputClass} resize-none`}
         />
       </div>
 
-      {/* Submit */}
       <Button
         type="submit"
         variant="primary"
@@ -168,11 +162,11 @@ export default function ContactForm() {
         disabled={status === 'submitting'}
         className="w-full justify-center"
       >
-        {status === 'submitting' ? 'Sending…' : 'Send Message'}
+        {status === 'submitting' ? 'sending…' : 'send it →'}
       </Button>
 
       <p className="font-mono text-xs text-text-muted text-center">
-        We reply within 24 hours. No spam, ever.
+        we reply within 24 hours. no spam, ever.
       </p>
     </form>
   )

@@ -142,3 +142,109 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* ─── Ambient orb drift ─── */
+@keyframes orbDriftPurple {
+  0%   { transform: translate(0px,   0px); }
+  100% { transform: translate(80px, -60px); }
+}
+@keyframes orbDriftRed {
+  0%   { transform: translate(0px,  0px); }
+  100% { transform: translate(-70px, 80px); }
+}
+.orb-drift-purple {
+  animation: orbDriftPurple 28s ease-in-out infinite alternate;
+  will-change: transform;
+}
+.orb-drift-red {
+  animation: orbDriftRed 24s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* ─── Booking dot pulse ─── */
+@keyframes dotPulse {
+  0%, 100% { transform: scale(1);    opacity: 0.65; }
+  50%       { transform: scale(1.15); opacity: 1; }
+}
+.dot-pulse {
+  animation: dotPulse 2s ease-in-out infinite;
+  box-shadow: 0 0 4px 1px rgba(255, 46, 76, 0.45);
+  will-change: transform, opacity;
+}
+
+/* ─── Marquee fade-edge mask ─── */
+.marquee-wrap {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+/* ─── "see the work →" link ─── */
+.work-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+.work-link:hover { color: var(--text-primary); }
+
+.work-link-text { position: relative; }
+.work-link-text::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0; right: 0;
+  height: 1px;
+  background: var(--glow-magenta);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.work-link:hover .work-link-text::after { transform: scaleX(1); }
+
+.work-link-arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+.work-link:hover .work-link-arrow { transform: translateX(4px); }
+
+@media (hover: none) {
+  .work-link-text::after { display: none; }
+  .work-link-arrow       { transition: none; }
+}
+
+/* ─── Case study visual shimmer ─── */
+@keyframes shimmerSweep {
+  0%   { transform: translateX(-200%) skewX(-20deg); }
+  100% { transform: translateX(400%)  skewX(-20deg); }
+}
+.case-shimmer-wrap { position: relative; overflow: hidden; }
+.case-shimmer-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 30%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(217, 70, 239, 0.18) 50%, transparent);
+  animation: shimmerSweep 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ─── Hide scrollbar (mobile pill row) ─── */
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* ─── Reduced motion additions ─── */
+@media (prefers-reduced-motion: reduce) {
+  .orb-drift-purple,
+  .orb-drift-red,
+  .dot-pulse,
+  .case-shimmer-wrap::after {
+    animation: none !important;
+  }
+  .work-link-text::after,
+  .work-link-arrow {
+    transition: none !important;
+  }
+}

@@ -93,7 +93,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-border-subtle flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
           <p className="font-mono text-xs text-text-muted">
-            © {year} adsbyvalr. All rights reserved.
+            © {year} adsbyvalr. all rights reserved.
           </p>
           <p className="font-mono text-xs text-border-subtle">
             EST. 2025 — CREATIVE PERFORMANCE

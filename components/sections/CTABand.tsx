@@ -7,7 +7,6 @@ export default function CTABand() {
       className="relative py-32 md:py-40 bg-bg-primary overflow-hidden"
       aria-label="Call to action"
     >
-      {/* Large blurred orb behind text */}
       <div
         className="absolute inset-0 flex items-center justify-center pointer-events-none"
         aria-hidden="true"
@@ -23,43 +22,41 @@ export default function CTABand() {
         />
       </div>
 
-      {/* Top gradient line */}
       <div className="absolute top-0 inset-x-0 h-px gradient-line" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <FadeIn>
           <p className="font-mono text-xs tracking-widest text-glow-purple uppercase mb-6">
-            Ready?
+            READY?
           </p>
         </FadeIn>
 
         <FadeIn delay={0.1}>
-          <h2 className="font-display text-5xl md:text-7xl lg:text-8xl font-black text-text-primary leading-[0.92] tracking-tight glow-headline mb-8">
-            Let&apos;s build something.
+          <h2 className="font-display text-5xl md:text-7xl lg:text-8xl font-normal text-text-primary leading-[1.0] glow-headline mb-8">
+            let&apos;s build something.
           </h2>
         </FadeIn>
 
         <FadeIn delay={0.2}>
           <p className="font-body text-base md:text-lg text-text-muted max-w-md mx-auto mb-10 leading-relaxed">
-            One call. No pitch deck, no agency jargon. Just a straight conversation about what your brand needs.
+            one call. no pitch deck, no agency jargon. just a straight conversation about what your brand needs.
           </p>
         </FadeIn>
 
         <FadeIn delay={0.3}>
           <div className="flex flex-wrap justify-center gap-4">
             <Button href="/contact" variant="primary" size="lg">
-              Book a Call
+              book a call
             </Button>
             <Button href="/work" variant="secondary" size="lg">
-              See the work first
+              see the work first
             </Button>
           </div>
         </FadeIn>
 
-        {/* Tagline */}
         <FadeIn delay={0.4}>
           <p className="font-mono text-xs tracking-widest text-text-muted uppercase mt-12">
-            DTC · Fashion · Jewelry · Hospitality · Design · Lifestyle
+            DTC · FASHION · JEWELRY · HOSPITALITY · DESIGN · LIFESTYLE
           </p>
         </FadeIn>
       </div>
