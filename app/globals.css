@@ -231,9 +231,19 @@ body {
   pointer-events: none;
 }
 
-/* ─── Hide scrollbar (mobile pill row) ─── */
+/* ─── Hide scrollbar (mobile pill row / process carousel) ─── */
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 .no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* ─── Vignette — lighter on mobile ─── */
+.vignette-bg {
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.22) 100%);
+}
+@media (min-width: 768px) {
+  .vignette-bg {
+    background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.35) 100%);
+  }
+}
 
 /* ─── Reduced motion additions ─── */
 @media (prefers-reduced-motion: reduce) {

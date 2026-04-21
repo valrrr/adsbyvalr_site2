@@ -4,6 +4,7 @@ import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import GlowOrb from '@/components/ui/GlowOrb'
+import GrainTexture from '@/components/ui/GrainTexture'
 
 const fraunces = Fraunces({
   subsets: ['latin'],
@@ -80,10 +81,15 @@ export default function RootLayout({
       className={`${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable}`}
     >
       <body className="bg-bg-primary text-text-primary font-body antialiased">
-        <GlowOrb />
+        {/* z-[3]: page content — below grain (z-[4]) so blend mode applies across all surfaces */}
         <Nav />
-        <main id="main-content">{children}</main>
-        <Footer />
+        <div className="relative z-[3]">
+          <main id="main-content">{children}</main>
+          <Footer />
+        </div>
+        {/* Grain + vignette overlay (z-[4,5]), cursor orb (z-[9]) */}
+        <GrainTexture />
+        <GlowOrb />
       </body>
     </html>
   )

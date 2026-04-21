@@ -11,25 +11,32 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="relative bg-bg-secondary border-t border-border-subtle" aria-label="Site footer">
-      {/* Top gradient line */}
+    <footer className="relative bg-bg-secondary border-t border-border-subtle overflow-hidden" aria-label="Site footer">
       <div className="gradient-line" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+      {/* Faint purple orb — top-center bleed */}
+      <div
+        className="absolute rounded-full pointer-events-none w-[400px] h-[300px] -top-[80px] left-1/2 -translate-x-1/2 bg-[#A855F7] opacity-[0.08] blur-[80px]"
+        aria-hidden="true"
+      />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8 md:py-16">
+
+        {/* 2 cols on mobile, 3 cols on desktop */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-8">
 
           {/* Col 1 — Wordmark + tagline */}
           <div className="flex flex-col gap-3">
             <Link
               href="/"
-              className="font-display text-2xl font-black text-text-primary hover:text-glow-purple transition-colors"
+              className="font-display text-xl md:text-2xl font-black text-text-primary hover:text-glow-purple transition-colors"
             >
               adsbyvalr
             </Link>
-            <p className="font-mono text-xs tracking-wider text-text-muted uppercase">
-              Creative performance marketing
+            <p className="font-mono text-xs tracking-wider text-text-muted uppercase leading-relaxed">
+              Creative performance<br className="md:hidden" /> marketing
             </p>
-            <p className="font-body text-sm text-text-muted mt-1 leading-relaxed">
+            <p className="font-body text-sm text-text-muted mt-1 leading-relaxed hidden md:block">
               We build ad engines for brands<br />people actually remember.
             </p>
           </div>
@@ -50,8 +57,8 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* Col 3 — Contact + social */}
-          <div className="flex flex-col gap-3">
+          {/* Col 3 — Contact + social (desktop only) */}
+          <div className="hidden md:flex flex-col gap-3">
             <p className="font-mono text-xs tracking-widest text-glow-purple uppercase mb-1">
               Get in Touch
             </p>
@@ -90,12 +97,33 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-12 pt-8 border-t border-border-subtle flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        {/* Mobile: social icons in bottom bar */}
+        <div className="mt-8 pt-6 border-t border-border-subtle flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
           <p className="font-mono text-xs text-text-muted">
             © {year} adsbyvalr. all rights reserved.
           </p>
-          <p className="font-mono text-xs text-border-subtle">
+          {/* Social on mobile only */}
+          <div className="flex gap-4 md:hidden">
+            <a
+              href="https://instagram.com/adsbyvalr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-xs tracking-wider text-text-muted uppercase"
+              aria-label="adsbyvalr on Instagram"
+            >
+              Instagram
+            </a>
+            <a
+              href="https://tiktok.com/@adsbyvalr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-xs tracking-wider text-text-muted uppercase"
+              aria-label="adsbyvalr on TikTok"
+            >
+              TikTok
+            </a>
+          </div>
+          <p className="font-mono text-xs text-border-subtle hidden md:block">
             EST. 2025 — CREATIVE PERFORMANCE
           </p>
         </div>

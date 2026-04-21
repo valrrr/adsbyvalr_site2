@@ -47,38 +47,32 @@ export default function Hero() {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      {/* ── Purple ambient orb ── */}
+      {/* ── Purple ambient orb — fixed size, higher mobile opacity ── */}
       <div
-        className="orb-drift-purple absolute pointer-events-none"
-        style={{
-          width: '55%',
-          height: '55%',
-          top: '5%',
-          left: '-10%',
-          background: 'radial-gradient(ellipse, #A855F7 0%, transparent 70%)',
-          filter: 'blur(140px)',
-          opacity: 0.18,
-        }}
+        className={[
+          'orb-drift-purple absolute rounded-full pointer-events-none',
+          'w-[500px] h-[500px]',
+          'top-[15%] left-[-80px]',
+          'bg-[#A855F7] opacity-[0.28] blur-[80px]',
+          'md:opacity-[0.18] md:blur-[140px]',
+        ].join(' ')}
         aria-hidden="true"
       />
 
-      {/* ── Red ambient orb ── */}
+      {/* ── Red ambient orb — bleeds in from bottom-right ── */}
       <div
-        className="orb-drift-red absolute pointer-events-none"
-        style={{
-          width: '50%',
-          height: '50%',
-          bottom: '5%',
-          right: '-5%',
-          background: 'radial-gradient(ellipse, #FF2E4C 0%, transparent 70%)',
-          filter: 'blur(160px)',
-          opacity: 0.14,
-        }}
+        className={[
+          'orb-drift-red absolute rounded-full pointer-events-none',
+          'w-[450px] h-[450px]',
+          'bottom-[8%] right-[-80px]',
+          'bg-[#FF2E4C] opacity-[0.22] blur-[90px]',
+          'md:opacity-[0.14] md:blur-[160px]',
+        ].join(' ')}
         aria-hidden="true"
       />
 
       {/* ── Content ── */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-[22vh] md:pt-[25vh] pb-16 flex-1">
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-24 md:pt-[25vh] pb-16 flex-1">
 
         {/* Mono eyebrow */}
         <motion.p
@@ -112,15 +106,22 @@ export default function Hero() {
           forward.
         </motion.h1>
 
-        {/* Subhead */}
-        <motion.p
+        {/* Subhead — short on mobile, full on desktop */}
+        <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.6 }}
-          className="font-body text-sm md:text-base text-text-muted max-w-sm mb-9 leading-relaxed"
+          className="mb-9"
         >
-          paid social, creative, and growth systems<br className="hidden md:block" /> for DTC and lifestyle brands.
-        </motion.p>
+          <p className="font-body text-sm text-text-muted max-w-xs leading-relaxed md:hidden">
+            paid social and creative for dtc and lifestyle brands.
+          </p>
+          <p className="font-body text-sm md:text-base text-text-muted max-w-sm leading-relaxed hidden md:block">
+            paid social, creative, and growth systems
+            <br />
+            for DTC and lifestyle brands.
+          </p>
+        </motion.div>
 
         {/* CTAs */}
         <motion.div
@@ -132,7 +133,8 @@ export default function Hero() {
           <Button href="/contact" variant="primary" size="md">
             book a call
           </Button>
-          <Link href="/work" className="work-link font-body text-sm font-medium">
+          {/* Hide secondary link on mobile — primary CTA is enough */}
+          <Link href="/work" className="work-link font-body text-sm font-medium hidden md:inline-flex">
             <span className="work-link-text">see the work</span>
             <span className="work-link-arrow" aria-hidden="true">→</span>
           </Link>

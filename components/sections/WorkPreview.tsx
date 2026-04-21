@@ -22,6 +22,7 @@ interface Project {
   metrics: [Metric, Metric, Metric]
   summary: string
   gradient: string
+  mobileOnly?: boolean
 }
 
 const GRAIN = `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`
@@ -81,10 +82,12 @@ const projects: Project[] = [
   },
 ]
 
+const MOBILE_PROJECTS = projects.slice(0, 3)
+
 const detailVariants = {
   hidden:  { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0,  transition: { duration: 0.2, ease: 'easeOut' as const } },
-  exit:    { opacity: 0,        transition: { duration: 0.15 } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.2, ease: 'easeOut' as const } },
+  exit:    { opacity: 0,       transition: { duration: 0.15 } },
 }
 
 function useCountUp(
@@ -94,9 +97,9 @@ function useCountUp(
   active: boolean,
   reducedMotion: boolean,
 ): string {
-  const [val, setVal] = useState(0)
-  const rafRef   = useRef<number | null>(null)
-  const startRef = useRef<number | null>(null)
+  const [val, setVal]     = useState(0)
+  const rafRef            = useRef<number | null>(null)
+  const startRef          = useRef<number | null>(null)
 
   useEffect(() => {
     if (rafRef.current !== null) cancelAnimationFrame(rafRef.current)
@@ -107,8 +110,8 @@ function useCountUp(
 
     const step = (now: number) => {
       if (startRef.current === null) startRef.current = now
-      const t      = Math.min((now - startRef.current) / duration, 1)
-      const eased  = 1 - Math.pow(1 - t, 3)
+      const t     = Math.min((now - startRef.current) / duration, 1)
+      const eased = 1 - Math.pow(1 - t, 3)
       setVal(t >= 1 ? target : eased * target)
       if (t < 1) rafRef.current = requestAnimationFrame(step)
     }
@@ -146,8 +149,8 @@ export default function WorkPreview() {
   const [displayIndex, setDisplayIndex]   = useState(0)
   const [inView, setInView]               = useState(false)
   const [reducedMotion, setReducedMotion] = useState(false)
-  const sectionRef  = useRef<HTMLElement>(null)
-  const hoverTimer  = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const sectionRef = useRef<HTMLElement>(null)
+  const hoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     setReducedMotion(window.matchMedia('(prefers-reduced-motion: reduce)').matches)
@@ -164,9 +167,7 @@ export default function WorkPreview() {
     return () => observer.disconnect()
   }, [])
 
-  const switchTo = useCallback((index: number) => {
-    setDisplayIndex(index)
-  }, [])
+  const switchTo = useCallback((index: number) => setDisplayIndex(index), [])
 
   const handleRowHover = useCallback((index: number) => {
     if (hoverTimer.current) clearTimeout(hoverTimer.current)
@@ -177,7 +178,7 @@ export default function WorkPreview() {
     if (hoverTimer.current) clearTimeout(hoverTimer.current)
   }, [])
 
-  const handleRowClick = useCallback((index: number) => {
+  const handleClick = useCallback((index: number) => {
     if (hoverTimer.current) clearTimeout(hoverTimer.current)
     switchTo(index)
   }, [switchTo])
@@ -187,13 +188,19 @@ export default function WorkPreview() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 md:py-32 bg-bg-primary"
+      className="relative py-16 md:py-32 bg-bg-primary overflow-hidden"
       aria-label="Selected work"
     >
+      {/* Red orb — mid-left bleed */}
+      <div
+        className="absolute rounded-full pointer-events-none w-[400px] h-[400px] top-1/2 left-[-100px] -translate-y-1/2 bg-[#FF2E4C] opacity-[0.15] blur-[80px] md:opacity-[0.10] md:blur-[110px]"
+        aria-hidden="true"
+      />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* ── Header ── */}
-        <FadeIn className="mb-14 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        {/* Header */}
+        <FadeIn className="mb-10 md:mb-14 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <p className="font-mono text-xs tracking-widest text-glow-purple uppercase mb-4">
               [ 03 / SELECTED WORK ]
@@ -202,30 +209,26 @@ export default function WorkPreview() {
               results, not decks.
             </h2>
           </div>
-          <Button href="/work" variant="ghost" size="md" className="group shrink-0">
+          <Button href="/work" variant="ghost" size="md" className="group shrink-0 hidden md:inline-flex">
             view all work
             <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
           </Button>
         </FadeIn>
 
-        {/* ── Interactive module ── */}
+        {/* Interactive module */}
         <div className="flex flex-col md:flex-row gap-8 lg:gap-16 items-start">
 
-          {/* Selector */}
+          {/* ── Selector ── */}
           <div className="w-full md:w-[38%] shrink-0">
 
-            {/* Mobile: horizontal pill row */}
-            <div
-              className="flex md:hidden gap-3 overflow-x-auto pb-3 no-scrollbar"
-              role="tablist"
-              aria-label="Case studies"
-            >
-              {projects.map((p, i) => (
+            {/* Mobile: 3 projects as horizontal pills */}
+            <div className="flex md:hidden gap-3 overflow-x-auto pb-3 no-scrollbar" role="tablist">
+              {MOBILE_PROJECTS.map((p, i) => (
                 <button
                   key={p.id}
                   role="tab"
                   aria-selected={displayIndex === i}
-                  onClick={() => handleRowClick(i)}
+                  onClick={() => handleClick(i)}
                   className={`flex-shrink-0 px-4 rounded-full font-mono text-[11px] tracking-wider border transition-colors whitespace-nowrap ${
                     displayIndex === i
                       ? 'border-glow-magenta text-text-primary bg-glow-magenta/10'
@@ -238,21 +241,17 @@ export default function WorkPreview() {
               ))}
             </div>
 
-            {/* Desktop: stacked selector rows */}
-            <div
-              className="hidden md:flex flex-col"
-              role="tablist"
-              aria-label="Case studies"
-            >
+            {/* Desktop: stacked selector rows (all 4 projects) */}
+            <div className="hidden md:flex flex-col" role="tablist">
               {projects.map((p, i) => (
                 <button
                   key={p.id}
                   role="tab"
                   aria-selected={displayIndex === i}
-                  onClick={() => handleRowClick(i)}
+                  onClick={() => handleClick(i)}
                   onMouseEnter={() => handleRowHover(i)}
                   onMouseLeave={handleRowLeave}
-                  className="group text-left py-5 pr-4 transition-all duration-200 active:scale-[0.98] focus-visible:outline-none"
+                  className="text-left py-5 pr-4 transition-all duration-200 active:scale-[0.98] focus-visible:outline-none"
                 >
                   <p className={`font-mono text-[11px] tracking-[0.15em] uppercase mb-1.5 transition-colors duration-200 ${
                     displayIndex === i ? 'text-glow-magenta' : 'text-text-muted'
@@ -278,7 +277,7 @@ export default function WorkPreview() {
             </div>
           </div>
 
-          {/* Detail panel */}
+          {/* ── Detail panel ── */}
           <div className="flex-1 min-w-0" role="tabpanel">
             <AnimatePresence mode="wait">
               <motion.div
@@ -288,16 +287,13 @@ export default function WorkPreview() {
                 animate="visible"
                 exit="exit"
               >
-                {/* Visual card */}
+                {/* Visual card — 4:3 on mobile, 16:10 on desktop */}
                 <div
-                  className="relative rounded-2xl overflow-hidden case-shimmer-wrap"
-                  style={{ aspectRatio: '16/10', background: project.gradient }}
+                  className="relative rounded-2xl overflow-hidden case-shimmer-wrap aspect-[4/3] md:aspect-[16/10]"
+                  style={{ background: project.gradient }}
                   aria-hidden="true"
                 >
-                  <div
-                    className="absolute inset-0 opacity-[0.07]"
-                    style={{ backgroundImage: GRAIN }}
-                  />
+                  <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: GRAIN }} />
                   <div
                     className="absolute inset-0"
                     style={{
@@ -311,8 +307,8 @@ export default function WorkPreview() {
                   </div>
                 </div>
 
-                {/* Metrics — key forces remount on project switch so count-up re-fires */}
-                <div className="grid grid-cols-3 gap-4 sm:gap-8 mt-7">
+                {/* Metrics — always 3-in-a-row */}
+                <div className="grid grid-cols-3 gap-4 sm:gap-8 mt-6">
                   {project.metrics.map((m) => (
                     <MetricBlock
                       key={`${displayIndex}-${m.label}`}
@@ -323,22 +319,30 @@ export default function WorkPreview() {
                   ))}
                 </div>
 
-                {/* Summary */}
-                <p className="font-body text-sm text-text-muted leading-relaxed mt-5 max-w-lg">
-                  {project.summary}
-                </p>
-
-                {/* Case study link */}
-                <Link
-                  href={`/work/${project.slug}`}
-                  className="work-link font-body text-sm mt-4 inline-flex"
-                >
-                  <span className="work-link-text">read case study</span>
-                  <span className="work-link-arrow" aria-hidden="true">→</span>
-                </Link>
+                {/* Summary + link — desktop only */}
+                <div className="hidden md:block">
+                  <p className="font-body text-sm text-text-muted leading-relaxed mt-5 max-w-lg">
+                    {project.summary}
+                  </p>
+                  <Link
+                    href={`/work/${project.slug}`}
+                    className="work-link font-body text-sm mt-4 inline-flex"
+                  >
+                    <span className="work-link-text">read case study</span>
+                    <span className="work-link-arrow" aria-hidden="true">→</span>
+                  </Link>
+                </div>
               </motion.div>
             </AnimatePresence>
           </div>
+        </div>
+
+        {/* Mobile view-all link */}
+        <div className="mt-8 md:hidden text-center">
+          <Button href="/work" variant="ghost" size="sm" className="group">
+            view all work
+            <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+          </Button>
         </div>
       </div>
     </section>
