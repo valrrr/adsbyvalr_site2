@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import Button from '@/components/ui/Button'
+import Logo from '@/components/ui/Logo'
 
 const navLinks = [
   { label: 'work',     href: '/work'     },
@@ -47,10 +48,10 @@ export default function Nav() {
             {/* Logo */}
             <Link
               href="/"
-              className="font-display text-xl md:text-2xl font-black tracking-tight text-text-primary hover:text-glow-purple transition-colors"
+              className="text-text-primary hover:text-glow-purple transition-colors"
               aria-label="adsbyvalr — Home"
             >
-              adsbyvalr
+              <Logo iconSize={28} strokeWidth={6.5} />
             </Link>
 
             {/* Desktop links */}

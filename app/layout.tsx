@@ -64,6 +64,10 @@ export const metadata: Metadata = {
     description: 'We build ad engines for brands people actually remember.',
     images: ['/og-image.png'],
   },
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+  },
   robots: {
     index: true,
     follow: true,
