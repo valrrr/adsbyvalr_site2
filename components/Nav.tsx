@@ -68,7 +68,10 @@ export default function Nav() {
             </div>
 
             {/* Desktop CTA */}
-            <div className="hidden md:block">
+            <div className="hidden md:flex items-center gap-3">
+              <Button href="https://portal.adsbyvalr.com" variant="secondary" size="sm" external>
+                log in
+              </Button>
               <Button href="/contact" variant="primary" size="sm">
                 book a call
               </Button>
@@ -147,10 +150,13 @@ export default function Nav() {
                 ))}
               </div>
 
-              {/* Sticky CTA at bottom */}
-              <div className="px-6 pb-10">
+              {/* Sticky CTAs at bottom */}
+              <div className="px-6 pb-10 flex flex-col gap-3">
                 <Button href="/contact" variant="primary" size="lg" className="w-full justify-center">
                   book a call
+                </Button>
+                <Button href="https://portal.adsbyvalr.com" variant="secondary" size="lg" external className="w-full justify-center">
+                  log in
                 </Button>
               </div>
             </motion.div>
