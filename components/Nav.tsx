@@ -69,7 +69,7 @@ export default function Nav() {
 
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center gap-3">
-              <Button href="https://portal.adbyvalr.com" variant="secondary" size="sm" external>
+              <Button href="https://portal.adsbyvalr.com" variant="secondary" size="sm" external>
                 log in
               </Button>
               <Button href="/contact" variant="primary" size="sm">
@@ -155,7 +155,7 @@ export default function Nav() {
                 <Button href="/contact" variant="primary" size="lg" className="w-full justify-center">
                   book a call
                 </Button>
-                <Button href="https://portal.adbyvalr.com" variant="secondary" size="lg" external className="w-full justify-center">
+                <Button href="https://portal.adsbyvalr.com" variant="secondary" size="lg" external className="w-full justify-center">
                   log in
                 </Button>
               </div>
