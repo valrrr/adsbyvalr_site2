@@ -89,7 +89,7 @@ export default function AboutPage() {
             {/* Accent block */}
             <FadeIn delay={0.15}>
               <div
-                className="relative rounded-2xl overflow-hidden p-10 border border-border-subtle"
+                className="relative rounded-2xl overflow-hidden p-6 md:p-10 border border-border-subtle"
                 style={{
                   background:
                     'linear-gradient(135deg, rgba(107,33,168,0.15) 0%, rgba(10,10,15,1) 60%)',
@@ -110,7 +110,7 @@ export default function AboutPage() {
                     { stat: '4.1×', label: 'average ROAS across portfolio' },
                   ].map(({ stat, label }) => (
                     <div key={stat} className="border-b border-border-subtle pb-8 last:border-0 last:pb-0">
-                      <p className="font-mono text-4xl md:text-5xl font-black text-text-primary mb-1"
+                      <p className="font-mono text-3xl md:text-4xl lg:text-5xl font-black text-text-primary mb-1"
                         style={{ textShadow: '0 0 40px rgba(168,85,247,0.4)' }}>
                         {stat}
                       </p>

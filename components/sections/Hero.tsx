@@ -51,8 +51,8 @@ export default function Hero() {
       <div
         className={[
           'orb-drift-purple absolute rounded-full pointer-events-none',
-          'w-[500px] h-[500px]',
-          'top-[15%] left-[-80px]',
+          'w-[80vw] h-[80vw] max-w-[500px] max-h-[500px]',
+          'top-[15%] left-[-40px] md:left-[-80px]',
           'bg-[#A855F7] opacity-[0.28] blur-[80px]',
           'md:opacity-[0.18] md:blur-[140px]',
         ].join(' ')}
@@ -63,8 +63,8 @@ export default function Hero() {
       <div
         className={[
           'orb-drift-red absolute rounded-full pointer-events-none',
-          'w-[450px] h-[450px]',
-          'bottom-[8%] right-[-80px]',
+          'w-[70vw] h-[70vw] max-w-[450px] max-h-[450px]',
+          'bottom-[8%] right-[-40px] md:right-[-80px]',
           'bg-[#FF2E4C] opacity-[0.22] blur-[90px]',
           'md:opacity-[0.14] md:blur-[160px]',
         ].join(' ')}

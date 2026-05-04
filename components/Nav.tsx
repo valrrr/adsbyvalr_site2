@@ -80,7 +80,7 @@ export default function Nav() {
             {/* Hamburger */}
             <button
               onClick={() => setMobileOpen(v => !v)}
-              className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 focus-visible:outline-glow-magenta rounded"
+              className="md:hidden flex flex-col justify-center items-center w-12 h-12 gap-1.5 focus-visible:outline-glow-magenta rounded"
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={mobileOpen}
               aria-controls="mobile-menu"
